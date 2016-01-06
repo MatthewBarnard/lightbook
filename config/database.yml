@@ -89,3 +89,4 @@ production:
     password: ZyUuU3ZnjAG54RKYHIjWP7K5xF
     host: ec2-54-235-170-124.compute-1.amazonaws.com
     sslmode: require
+    port: 5432
