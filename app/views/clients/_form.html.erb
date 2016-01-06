@@ -1,0 +1,27 @@
+<%= form_for @client, url: {action: 'create'} do |f| %>
+    <%= f.hidden_field :id, value:id %>
+    <div class="box-body">
+      <div class="form-group">
+        <label>Full Name</label>
+        <%= f.text_field :full_name, class:'form-control', placeholder:'John Doe' %>
+      </div>
+      <div class="form-group">
+        <label>Email address</label>
+        <%= f.text_field :email, class:'form-control', placeholder:'john@domain.com' %>
+      </div>
+      <div class="form-group">
+        <label>Telephone</label>
+        <%= f.text_field :tell, class:'form-control', placeholder:'000 000 0000' %>
+      </div>
+      <div class="form-group">
+        <label>Cellphone</label>
+        <%= f.text_field :cell, class:'form-control', placeholder:'000 000 0000' %>
+      </div>
+    </div>
+    <div class="box-footer">
+      <div class="col-md-6 text-left"><%= link_to '<i class="fa fa-times icon-text-right"></i>Cancel'.html_safe, :back, class: 'btn btn-danger' %></div>
+      <div class="col-md-6 text-right">
+        <button type="submit" class="btn btn-primary"><i class="fa fa-save icon-text-right"></i>Save</button>
+      </div>
+    </div>
+<% end %>

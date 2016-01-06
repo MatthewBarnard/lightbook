@@ -1,0 +1,57 @@
+<%= render :partial => 'menu', :locals => {:show_controls => true} %>
+<%= render :partial => 'layouts/menu', :locals => {:active_menu_item => 7} %>
+
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>
+      Services
+      <small>See all services and edit their details</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-fax"></i> Services</a></li>
+    </ol>
+  </section>
+
+  <section class="content">
+    <div class="box">
+      <div class="box-header text-center">
+        <h1 class="box-title">Services</h1>
+      </div>
+      <div class="box-body">
+        <table id="table1" class="table table-bordered table-striped">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Duration</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @services.each_with_index do |service| %>
+              <tr>
+                <td><%= service.name %></td>
+                <td>R <%= service.price %></td>
+                <td><%= service.duration %> minutes</td>
+                <td class="text-center">
+                  <a href="services/<%= service.id %>/edit" class="btn btn-primary" data-widget="edit" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                  <a class="btn btn-info" data-widget="statisticss" data-toggle="tooltip" title="" data-original-title="View Service Statistics"><i class="fa fa-signal"></i></a>
+                  <% if service.is_active %>
+                      <a class="btn btn-danger deactivate-service" service_id="<%= service.id %>" data-widget="remove_service" data-toggle="tooltip" title="" data-original-title="Deactivate"><i class="fa fa-times"></i></a>
+                  <% else %>
+                      <a href="services/<%= service.id %>/activate" class="btn btn-success" data-widget="activate_service" data-toggle="tooltip" title="" data-original-title="Reactivate"><i class="fa fa-check"></i></a>
+                  <% end %>
+                </td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</div>
+
+<%= render 'modals' %>
+<script>
+  services.init();
+</script>

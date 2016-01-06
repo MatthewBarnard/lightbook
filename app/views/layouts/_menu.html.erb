@@ -1,0 +1,138 @@
+<aside class="main-sidebar">
+
+  <section class="sidebar">
+
+    <!---------------------------------------------------------------------------->
+    <!---------------------------------PROFILE------------------------------------>
+    <!---------------------------------------------------------------------------->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <img src="/assets/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+      </div>
+      <div class="pull-left info">
+        <p>Matthew Barnard</p>
+        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+      </div>
+    </div>
+
+    <!---------------------------------------------------------------------------->
+    <!--------------------------------SEARCHING----------------------------------->
+    <!---------------------------------------------------------------------------->
+    <form action="#" method="get" class="sidebar-form">
+      <div class="input-group">
+        <input type="text" name="q" class="form-control" placeholder="Search...">
+              <span class="input-group-btn">
+                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                </button>
+              </span>
+      </div>
+    </form>
+
+    <!---------------------------------------------------------------------------->
+    <!--------------------------------MENU ITEMS---------------------------------->
+    <!---------------------------------------------------------------------------->
+    <ul class="sidebar-menu">
+      <li class="header text-center">MENU</li>
+      <!--DASHBOARD-->
+      <li class="<%= active_menu_item == 1 ? 'active' : '' %>">
+        <a href="/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+      <!--BOOKINGS-->
+      <li class="<%= active_menu_item == 2 ? 'active' : '' %>">
+        <a href="#"><i class="fa fa-asterisk"></i> <span>Bookings</span>
+          <span class="label label-primary pull-right">4</span></a></li>
+      <!--CLIENTS-->
+      <li class="treeview <%= active_menu_item.between?(3, 6) ? 'active' : '' %>">
+        <a href="#">
+          <i class="fa fa-users"></i>
+          <span>Clients</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= active_menu_item == 3 ? 'active' : '' %>">
+            <a href="/clients"><i class="fa fa-circle-o"></i> Client List</a></li>
+          <li class="<%= active_menu_item == 4 ? 'active' : '' %>">
+            <a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Client Statistics</a></li>
+          <li class="<%= active_menu_item == 5 ? 'active' : '' %>">
+            <a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Client Referrals</a></li>
+          <li class="<%= active_menu_item == 6 ? 'active' : '' %>">
+            <a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Client Feedback</a></li>
+        </ul>
+      </li>
+      <!--SERVICES-->
+      <li class="<%= active_menu_item == 7 ? 'active' : '' %>">
+        <a href="services">
+          <i class="fa fa-fax"></i> <span>Services</span>
+        </a>
+      </li>
+      <!--STAFF-->
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-graduation-cap"></i>
+          <span>Staff</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= active_menu_item == 8 ? 'active' : '' %>">
+            <a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Employees</a></li>
+          <li class="<%= active_menu_item == 9 ? 'active' : '' %>">
+            <a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Payslips</a></li>
+          <li class="<%= active_menu_item == 10 ? 'active' : '' %>">
+            <a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Staff Rostering</a></li>
+          <li class="<%= active_menu_item == 11 ? 'active' : '' %>">
+            <a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i>Employee Leave</a></li>
+        </ul>
+      </li>
+      <!--FINANCIAL-->
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-dollar"></i>
+          <span>Financial</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= active_menu_item == 12 ? 'active' : '' %>">
+            <a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> Invoices</a></li>
+          <li class="<%= active_menu_item == 13 ? 'active' : '' %>">
+            <a href="pages/UI/icons.html"><i class="fa fa-circle-o"></i> Expenses</a></li>
+          <li class="<%= active_menu_item == 14 ? 'active' : '' %>">
+            <a href="pages/UI/buttons.html"><i class="fa fa-circle-o"></i> Income</a></li>
+          <li class="<%= active_menu_item == 15 ? 'active' : '' %>">
+            <a href="pages/UI/sliders.html"><i class="fa fa-circle-o"></i> Salaries</a></li>
+        </ul>
+      </li>
+      <!--STOCK-->
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-tags"></i> <span>Stock</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= active_menu_item == 16 ? 'active' : '' %>">
+            <a href="pages/forms/general.html"><i class="fa fa-circle-o"></i> Stock Mangement</a></li>
+          <li class="<%= active_menu_item == 17 ? 'active' : '' %>">
+            <a href="pages/forms/advanced.html"><i class="fa fa-circle-o"></i> Stock List</a></li>
+          <li class="<%= active_menu_item == 18 ? 'active' : '' %>">
+            <a href="pages/forms/editors.html"><i class="fa fa-circle-o"></i> Supplier List</a></li>
+        </ul>
+      </li>
+      <!--MESSAGES-->
+      <li class="<%= active_menu_item == 19 ? 'active' : '' %>">
+        <a href=#"><i class="fa fa-envelope"></i> <span>Messages</span></a></li>
+      <!--SETTINGS-->
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-gears"></i> <span>Settings</span>
+          <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+          <li class="<%= active_menu_item == 20 ? 'active' : '' %>">
+            <a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Booking Policies</a></li>
+          <li class="<%= active_menu_item == 21 ? 'active' : '' %>">
+            <a href="pages/tables/simple.html"><i class="fa fa-circle-o"></i> Employee Positions</a></li>
+        </ul>
+      </li>
+    </ul>
+
+  </section>
+  <!-- /.sidebar -->
+</aside>

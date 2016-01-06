@@ -1,0 +1,24 @@
+<%= render :partial => 'menu', :locals => {:show_controls => false} %>
+<%= render :partial => 'layouts/menu', :locals => {:active_menu_item => 3} %>
+
+<div class="content-wrapper">
+  <section class="content-header">
+    <h1>
+      Create a Client
+      <small>Add a client to the system</small>
+    </h1>
+    <ol class="breadcrumb">
+      <li><a href="#"><i class="fa fa-users"></i> Clients</a></li>
+      <li><a href="/clients">Client List</a></li>
+      <li><a href="#">Create a Client</a></li>
+    </ol>
+  </section>
+  <section class="content">
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <h3 class="box-title">Client Details</h3>
+      </div>
+      <%= render :partial => 'form', :locals => {:id => params[:id]} %>
+    </div>
+  </section>
+</div>
