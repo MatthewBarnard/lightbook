@@ -82,7 +82,10 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: LightBook_production
-  username: LightBook
-  password: <%= ENV['LIGHTBOOK_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+    encoding: utf8
+    database: da1kr4vailsa45
+    username: rscopmoqnoutkq
+    password: ZyUuU3ZnjAG54RKYHIjWP7K5xF
+    host: ec2-54-235-170-124.compute-1.amazonaws.com
+    sslmode: require
