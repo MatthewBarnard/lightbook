@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :clients
   resources :services
   resources :admin_dashboard
+  resources :front_end
 
   controller :admin_dashboard do
     get 'dashboard' => :index
@@ -33,6 +34,12 @@ Rails.application.routes.draw do
 
     post 'services' => :create
     patch 'services' => :create
+  end
+
+  controller :front_end do
+    get '/book' => :book
+    post '/check_availability' => :check_availability
+    patch '/check_availability' => :check_availability
   end
 
 end

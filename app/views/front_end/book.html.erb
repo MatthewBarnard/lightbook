@@ -1,0 +1,121 @@
+<style>
+  #banner {
+    background-attachment: scroll, scroll, scroll, fixed;
+    background-color: #645862;
+
+    /*background-image: url("../../assets/frontend/css/images/light-bl.svg"), url("../../assets/frontend/css/images/light-br.svg"), url("../../assets/frontend/css/images/overlay.png"), url("https://images.bigcartel.com/bigcartel/theme_images/7812763/-/Banner-thin.jpg");*/
+    background-image: url("../../assets/frontend/css/images/light-bl.svg"), url("../../assets/frontend/css/images/light-br.svg"), url("../../assets/frontend/css/images/overlay.png"), url("../../assets/frontend/css/images/banner2.jpg");
+    background-position: bottom left, bottom right, top left, top center;
+    background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+    background-size: 25em, 25em, auto, cover;
+    color: #fff;
+    cursor: default;
+    padding: 6em 0;
+    text-align: center;
+  }
+</style>
+
+
+<section id="banner">
+
+
+  <h1 style="font-family: colleged">
+    Bookings
+  </h1>
+
+
+</section>
+<!--<div class="row">-->
+<!--<div class="col-md-12">-->
+<!--<div class="jumbotron">-->
+<!--<h1>Bookings</h1>-->
+<!--<p>Select a date and time to check availability.</p>-->
+
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+
+<header class="special container" style="padding-top:10px">
+  <div class="col-lg-5 col-md-4 col-xs-12 double-line"></div>
+  <div class="col-lg-2 col-md-4 col-xs-12 text-center">
+    <img src="../../assets/frontend/css/images/logo_2.png" style="height: 100px; width:100px"/></div>
+  <div class="col-lg-5 col-md-4 col-xs-12 double-line"></div>
+
+
+  <div class="row">
+
+    <div class="col-md-6 text-left">
+      <h1 id="display_date"><%= @display_date %>
+      </h1>
+    </div>
+    <div class="col-md-6 text-right">
+      <h1 id="display_time"><%= @display_time %>
+      </h1>
+    </div>
+  </div>
+
+  <div id="availability_success" style="display: none">
+    <div class="col-md-12 text-center">
+      <img src="https://cdn2.iconfinder.com/data/icons/free-basic-icon-set-2/300/11-128.png"/>
+      <br/>
+
+      <h3 style="font-family: colleged">Booking <strong>Available!</strong></h3>
+      <div class="col-md-6 text-left">
+        <a href="#" style="color: black" class="btn btn-warning"><i class="fa fa-refresh" style="padding-right: 5px"></i>Select another date</a>
+      </div>
+      <div class="col-md-6 text-right">
+        <a href="#" style="color: black" class="btn btn-success"><i class="fa fa-chevron-right" style="padding-right: 5px"></i>Proceed</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="availability_danger" style="display: none">
+    <div class="col-md-12 text-center">
+      <img src="https://cdn2.iconfinder.com/data/icons/free-basic-icon-set-2/300/3-128.png"/>
+      <br/>
+
+      <h3 style="font-family: colleged">Booking <strong>NOT Available!</strong></h3>
+    </div>
+    <div class="col-md-12 text-left">
+      <a href="#" style="color: black" class="btn btn-warning"><i class="fa fa-refresh" style="padding-right: 5px"></i>Select another date</a>
+    </div>
+  </div>
+
+  <div id="availability_loading" style="display: none">
+    <div class="col-md-12 text-center">
+      <i class="fa fa-cog fa-spin" style="font-size: 75px"></i>
+      <br/>
+
+      <h3 style="font-family: colleged">Checking Availability </h3>
+    </div>
+  </div>
+
+  <div id="select_date">
+    <h2>
+      <%= form_for 'check_availability', url: {action: 'check_availability'}, html: {id: 'date_time_form'} do |f| %>
+          <%= f.text_field :date, id:'date_picker', class:'form-control', placeholder:'Click to select date', value: @current_date %>
+          <%= f.text_field :time, id:'time_picker', type:'time', class:'form-control', value: @current_time %>
+      <% end %>
+    </h2>
+
+    <div class="col-md-12 text-right">
+      <a id="submit_booking" class="btn btn-primary" style="color: black"><i class="fa fa-check" style="padding-right:5px"></i>Check Availability</a>
+    </div>
+  </div>
+</header>
+
+
+
+<script>
+  $(document).ready(function () {
+    $('#date_picker').bootstrapMaterialDatePicker({
+      format: 'DD-MM-YYYY',
+      minDate: new Date(),
+      time: false,
+      weekStart: 1
+    });
+  })
+
+  bookings.init();
+</script>

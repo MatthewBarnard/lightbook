@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115104047) do
+ActiveRecord::Schema.define(version: 20160110190822) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer  "client_id"
+    t.date     "date_requested"
+    t.time     "time_requested"
+    t.boolean  "COA",            default: false
+    t.boolean  "EFT",            default: false
+    t.boolean  "has_paid",       default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "has_displayed",  default: false
+  end
 
   create_table "clients", force: :cascade do |t|
     t.string   "full_name"
@@ -36,4 +48,5 @@ ActiveRecord::Schema.define(version: 20151115104047) do
     t.datetime "updated_at",                null: false
   end
 
+  add_foreign_key "bookings", "clients"
 end
